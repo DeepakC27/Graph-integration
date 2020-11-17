@@ -1,0 +1,14 @@
+@import '../../Styles/Variables.scss';
+
+select {
+  height: 35px;
+  width: 58px;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border: 2px solid;
+  border-radius: .5rem;
+  &:focus {
+    outline: none;
+    border: 2px solid $primary-color;
+  }
+}

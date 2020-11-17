@@ -1,0 +1,52 @@
+@import './Variables.scss';
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $background-color;
+  font-size: $font-size;
+}
+a {
+  text-decoration: none;
+  color: $primary-color !important;
+  &:hover {
+    text-decoration: none;
+    color: $primary-color;
+  }
+}
+* {
+  // border: 1px solid red;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+h1, h2, h3, h4, p {
+  margin: 0
+}
+main {
+  padding: $body-spacing;
+  margin-top: 2rem;
+}
+.mt5 {
+  margin-top: .5rem;
+}
+.mt10 {
+  margin-top: 1rem;
+}
+.mb20 {
+  margin-bottom: 2rem;
+}
+.graph-title {
+  font-size: 2rem;
+}
