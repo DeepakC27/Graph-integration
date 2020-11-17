@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense} from 'react'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { PageLoader } from './Common'
+import Header from './Components/Header'
+import store from './Store/Reducer'
+import './Styles/Common.scss'
 
-function App() {
+const Home = React.lazy(() => import('./Components/Home'))
+const ViewComponent = React.lazy(() => import('./Components/ViewComponent'))
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <Suspense fallback={<PageLoader />}>
+      <BrowserRouter>
+        <Header />
+        <main>
+          <Switch>
+            <Route path='/' exact component={Home}></Route>
+            <Route path='/view' exact component={ViewComponent}></Route>
+            <Redirect to='/' />
+          </Switch>
+        </main>
+      </BrowserRouter>
+    </Suspense>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
